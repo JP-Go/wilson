@@ -1,0 +1,5 @@
+export WILSON_DB_HOST="localhost"
+export WILSON_DB_PORT="5432" 
+export WILSON_DB_DATABASE="wilson"
+export WILSON_DB_USER="postgres" 
+export WILSON_DB_PASSWORD="12345678"

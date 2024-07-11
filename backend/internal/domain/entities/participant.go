@@ -14,12 +14,6 @@ type Participant struct {
 	ConfirmedPresence bool          `json:"confirmed_presence"`
 }
 
-type ParticipantModel struct {
-	Id    uuid.UUID
-	Name  string
-	Email string
-}
-
 type NewParticipantParams struct {
 	id                uuid.NullUUID
 	name              string

@@ -20,15 +20,6 @@ type Trip struct {
 	Participants []Participant      `json:"participants"`
 }
 
-type TripModel struct {
-	Id          uuid.UUID
-	StartsAt    time.Time
-	EndsAt      time.Time
-	Destination string
-	OwnerEmail  string
-	OwnerName   string
-}
-
 type TripConfig struct {
 	startsAt    time.Time
 	endsAt      time.Time

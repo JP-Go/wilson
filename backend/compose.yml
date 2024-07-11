@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: ${WILSON_DB_USER}
+      POSTGRES_DB: ${WILSON_DB_DATABASE}
+      POSTGRES_PASSWORD: ${WILSON_DB_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local
