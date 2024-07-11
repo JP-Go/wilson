@@ -9,9 +9,9 @@ type ParticipantId = uuid.NullUUID
 
 type Participant struct {
 	Id                ParticipantId `json:"id"`
-	Name              string        `json:"name"`
 	Email             vo.Email      `json:"email"`
 	ConfirmedPresence bool          `json:"confirmed_presence"`
+	TripId            TripId        `json:"trip_id"`
 }
 
 type NewParticipantParams struct {
@@ -43,7 +43,6 @@ func NewParticipant(params NewParticipantParams) (*Participant, error) {
 			UUID:  uuid.New(),
 			Valid: true,
 		},
-		Name:              params.name,
 		Email:             params.email,
 		ConfirmedPresence: params.confirmedPresence,
 	}
