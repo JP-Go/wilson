@@ -1,9 +1,9 @@
 package mappers
 
 import (
-	"github.com/JP-Go/wilson/backend/infra/database/pgstore"
 	"github.com/JP-Go/wilson/backend/internal/domain/entities"
 	vo "github.com/JP-Go/wilson/backend/internal/domain/value_objects"
+	"github.com/JP-Go/wilson/backend/internal/infra/database/pgstore"
 	"github.com/google/uuid"
 )
 

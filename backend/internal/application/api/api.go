@@ -13,15 +13,28 @@ import (
 	"github.com/jackc/pgx/v5"
 )
 
-type API struct {
+type APIConfig struct {
 	confirmParticipantUseCase usecases.ConfirmParticipantPresenceUseCase
 	getParticipantUseCase     usecases.GetParticipantUseCase
 	logger                    slog.Logger
 }
 
+type API struct {
+	APIConfig
+}
+
+func NewAPI(apiconfig APIConfig) *API {
+	return &API{
+		apiconfig,
+	}
+}
+
 // Confirms a participant on a trip.
 // (PATCH /participants/{participantId}/confirm)
-func (ap *API) PatchParticipantsParticipantIDConfirm(w http.ResponseWriter, r *http.Request, participantID string) *Response {
+func (ap *API) PatchParticipantsParticipantIDConfirm(w http.ResponseWriter,
+	r *http.Request,
+	participantID string,
+) *Response {
 	id, err := uuid.Parse(participantID)
 	if err != nil {
 		return PatchParticipantsParticipantIDConfirmJSON400Response(Error{
